@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>聊天机器人</title>
+    <style type="text/css">
+        .chatting_con {
+            width: 800px;
+            height: 590px;
+            border: 1px solid #666;
+            margin: 50px auto 0;
+            background: #f9f9f9;
+        }
+
+        .chatting_header {
+            width: 800px;
+            height: 60px;
+            border: 0px solid #666;
+            float: left;
+            overflow: auto;
+            background-color: #4A4AFF;
+            margin: 0px auto 0;
+        }
+
+        .chatting_show {
+            width: 580px;
+            height: 420px;
+            border: 0px solid #666;
+            background: #fff;
+            float: left;
+            margin: 1px auto 0;
+            overflow: auto;
+        }
+
+        .chatting_tips {
+            width: 220px;
+            height: 500px;
+            float: right;
+            overflow: auto;
+        }
+
+        .ask_input {
+            width: 580px;
+            margin: 5px auto 0;
+        }
+
+        .ask_input {
+            width: 580px;
+            height: 70px;
+            padding: 0px;
+            float: left;
+            outline: none;
+            text-indent: 10px;
+        }
+
+        .ask_sub {
+            width: 90px;
+            height: 25px;
+            float: right;
+            margin: 5px;
+        }
+
+        .question_lan {
+            margin-top: 0px;
+            margin-bottom: 10px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            border: 1px solid #d0d0d0;
+        }
+
+        .question_context {
+            margin: 1px;
+            font-family: "Microsoft Sans Serif";
+            font-size: 13px;
+        }
+
+        .question {
+            margin-top: 2px;
+            margin-left: 10px;
+        }
+
+        .human {
+            margin: 10px;
+            text-align: right;
+        }
+
+        .human span {
+            display: inline-block;
+            background: #0181cc;
+            border-radius: 10px;
+            color: #fff;
+            padding: 5px 10px;
+        }
+
+        .chat_bot {
+            margin: 10px;
+            text-align: left;
+        }
+
+        .chat_bot span {
+            display: inline-block;
+            background: #ef8201;
+            border-radius: 10px;
+            color: #fff;
+            padding: 5px 10px;
+        }
+
+        #common_problem {
+            color: blue;
+            margin-left: 10px;
+            font-family: STHeiti;
+        }
+    </style>
+    {% block scripts %}
+    <script src="{{url_for('static',filename='js/jquery-1.9.1.min.js')}}"></script>
+    {%endblock%}
+    <script>
+        function Chatting() {
+            if ($("#ask_input_id").val() == "" || $("#ask_input_id").val() == null) {
+                alert("发送消息不能为空")
+            } else {
+                var ask = $("#ask_input_id").val();
+                var chatting_show = document.getElementById('chatting');
+                var text = '<div class="human">' +
+                    '<span id="human_ask">' + ask + '</span>' +
+                    '<img style="width:30px;height:30px;border-radius:50%;" src="../static/image/human.png"/>' +
+                    '</div>';
+
+                chatting_show.innerHTML = chatting_show.innerHTML + text;
+                chatting_show.scrollTop = chatting_show.scrollHeight;
+
+                $("#ask_input_id").val('');
+
+                $.ajax({
+                    url: '/chat',
+                    type: 'POST',
+                    data: {
+                        ask: ask
+                    },
+                    cache: false,
+                    ifModified: true,
+                    dataType: "JSON",
+                    success: function (info) {
+                        console.log(info)
+                        var chatting_show = document.getElementById('chatting');
+                        var answer = '';
+
+                        if (info.status == 'ok') {
+                            answer = '<div class="chat_bot">' +
+                                '<img style="width:30px;height:30px;border-radius:50%;" src="../static/image/chatbot.png"/>' +
+                                '<span id="chat_bot_answer">' + info.answer + ' </span>' +
+                                '</div>';
+                        } else {
+                            answer = '<div class="chat_bot">' +
+                                '<img style="width:30px;height:30px;border-radius:50%;" src="../static/image/chatbot.png"/>' +
+                                '<span id="chat_bot_answer">' + '发现错误，请联系管理员检查' + ' </span>' +
+                                '</div>';
+
+                        }
+
+                        chatting_show.innerHTML = chatting_show.innerHTML + answer;
+                        chatting_show.scrollTop = chatting_show.scrollHeight;
+
+                    },
+                    error: function (err) {
+                        console.log(err);
+                        alert(err);
+                    }
+                })
+            }
+        }
+    </script>
+</head>
+<body background="../static/image/back_img.png">
+<div class="chatting_con">
+    <div class="chatting_header">
+        <div>
+            <img style="width:40px;height:40px;border-radius:50%;margin:10px;float: left;"
+                 src="../static/image/chatbot.png"/>
+            <span style="font-size: 20px;color: white;float: left;margin: 16px">聊天机器人</span>
+        </div>
+    </div>
+    <div class="chatting_show" id="chatting" style="overflow:auto">
+        <!--
+        <div class="human">
+            <span id="human_ask"></span>
+            <img style="width:30px;height:30px;border-radius:50%;" src="../static/image/human.png"/>
+        </div>
+        -->
+        <div class="chat_bot">
+            <img style="width:30px;height:30px;border-radius:50%;" src="../static/image/chatbot.png"/>
+            <span id="chat_bot_answer">hello !</span>
+        </div>
+    </div>
+    <div class="chatting_tips">
+        <div class="question_lan"><span id="common_problem" style="font-size: 15px">常见问题</span></div>
+        <div class="question_context">
+            <p><span class="question">你好</span></p>
+            <p><span class="question">你叫什么名字？</span></p>
+            <p><span class="question">你都知道什么？</span></p>
+            <p><span class="question">你是用什么语言写的？</span></p>
+            <p><span class="question">什么是chatbot？</span></p>
+            <p><span class="question">什么是人工智能？</span></p>
+            <p><span class="question">你到底是人还是机器？</span></p>
+            <p><span class="question">谁发明了世界上第一台计算机？</span></p>
+            <p><span class="question">中国古代四大发明有哪些？</span></p>
+            <p><span class="question">什么是负载均衡?</span></p>
+            <p><span class="question">长寿类食物有哪些?</span></p>
+            <p><span class="question">给我讲个笑话</span></p>
+            <p><span class="question">我去睡觉了</span></p>
+        </div>
+    </div>
+    <div class="ask_input">
+        <input type="text" , class="ask_input" , id="ask_input_id">
+        <input type="button" , value="发送" , class="ask_sub" , id="ask_sub_id" , onclick="Chatting()">
+    </div>
+</div>
+</body>
+</html>

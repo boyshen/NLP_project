@@ -1,0 +1,53 @@
+{
+  "food": {
+    "category": "食物问答",
+    "label": "food",
+    "answer": [
+      "很抱歉！小通目前还不了解这方面的知识呢！"
+    ]
+  },
+  "history": {
+    "category": "历史问答",
+    "label": "history",
+    "answer": [
+      "Sorry！小通目前还不了解这方面的知识呢！"
+    ]
+  },
+  "science": {
+    "category": "科学问答",
+    "label": "science",
+    "answer": [
+      "小通目前还不了解这方面的知识呢！"
+    ]
+  },
+  "dialog": {
+    "category": "普通对话",
+    "label": "dialog",
+    "answer": [
+      "嗯嗯 (=^.^=)",
+      "呵呵 (=^.^=)"
+    ]
+  },
+  "profile": {
+    "category": "人格信息描述",
+    "label": "profile",
+    "answer": [
+      "Sorry! 小通目前还不知道呢！回去问问爸爸再告诉你～！"
+    ]
+  },
+  "sensitive_word": {
+    "category": "敏感词",
+    "label": "sensitive_word",
+    "answer": [
+      "亲，请不要说敏感词哦！"
+    ]
+  },
+  "other": {
+    "category": "其他",
+    "label": "other",
+    "answer": [
+      "小通目前不能理解呢！请输入其他问题",
+      "很抱歉！小通目前还不了解这方面的知识呢！"
+    ]
+  }
+}

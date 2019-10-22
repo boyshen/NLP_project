@@ -1,0 +1,13 @@
+,category,label,ask,ask_keyword,class_id,class
+0,食物,food,黄瓜有什么营养,"黄瓜,有,什么,营养",1,other
+1,笑话,joke,给我讲一个笑话，换一个笑话,"我,讲,一个,笑话,换,一个,笑话",1,other
+2,人格信息描述,profile,你几岁,"你,几岁",0,profile
+3,人格信息描述,profile,信不信我拆了你,"信不信,我,拆,了,你",0,profile
+4,食物,food,酸奶有什么营养,"酸奶,有,什么,营养",1,other
+5,人格信息描述,profile,你妈是谁,"你,妈,是,谁",0,profile
+6,人格信息描述,profile,你是人还是智能,"你,是,人,还是,智能",0,profile
+7,科学,science,什么是超声波？,"什么,是,超声波",1,other
+8,人格信息描述,profile,你知道lol是什么吗,"你,知道,是,什么",0,profile
+9,人格信息描述,profile,你最喜欢的编程语言是什么,"你,最,喜欢,的,编程语言,是,什么",0,profile
+10,人格信息描述,profile,你是家养的还是野生的,"你,是,家养,的,还是,野生,的",0,profile
+11,食物,food,冬季吃什么食物？,"冬季,吃,什么,食物",1,other

@@ -1,0 +1,280 @@
+{
+  "desc": "对以下配置的的说明",
+  "context": {
+    "web": {
+      "host": "指定web server 监听的host，默认0.0.0.0",
+      "port": "指定web server 监听的端口"
+    },
+    "mysql": {
+      "host": "连接 mysql 的主机地址",
+      "user": "mysql 用户名",
+      "password": "mysql 用户对应的密码",
+      "db": "数据库"
+    },
+    "data": {
+      "file": "数据文件",
+      "type": "数据类型分为qa,dialog,joke,profile,sensitive_word,any_reply; qa 即知识问答类型,dialog对话数据类型,joke即笑话/幽默数据类型,profile 即人格信息数据, sensitive_word 即敏感词, any_reply 即万能回复",
+      "file_type": "txt 文件格式。普通文件格式",
+      "label": "数据类型的标签",
+      "category": "数据类型的类别",
+      "start_tag": "数据中如果有标记开始的字段，则写入，如果无则填None",
+      "end_tag": "数据中如果有标记结束的字段，则写入，如果无则填None",
+      "ask_tag": "标记问的字符",
+      "answer_tag": "标记答的字符",
+      "skip_line": "指定需要忽略的数据行",
+      "desc": "描述。对数据的描述",
+      "split_tag": "敏感词中词与词之间的标记，语料中默认使用 '，' 划分",
+      "field": "用于在any_reply回复中标记数据。"
+    },
+    "word_sequence": "保存的词库文件",
+    "threshold": "评分阀值，即高于低于该阀值则使用万能回复",
+    "category_label": "导入数据中的语料标签，注意需要一致",
+    "model": {
+      "model_file": "保存模型的文件路径",
+      "class_json": "划分训练数据集中的class.json文件，可在保存划分数据集中查看",
+      "seq_len": "训练模型时，保存的最大句子长度"
+    }
+  },
+  "web": {
+    "host": "0.0.0.0",
+    "port": 5000
+  },
+  "mysql": {
+    "host": "192.168.10.10",
+    "user": "chatbot",
+    "password": "chatbot",
+    "db": "chatbot"
+  },
+  "data": [
+    {
+      "file": "chinese_corpus/source/dialog/dialog_A.txt",
+      "type": "dialog",
+      "file_type": "txt",
+      "start_tag": "<S>",
+      "end_tag": "<E>",
+      "ask_tag": "H ",
+      "answer_tag": "C ",
+      "skip_line": [],
+      "label": "dialog",
+      "category": "普通对话",
+      "desc": "关于聊天机器人普通对话"
+    },
+    {
+      "file": "chinese_corpus/source/dialog/dialog_B.txt",
+      "type": "dialog",
+      "file_type": "txt",
+      "start_tag": "E",
+      "end_tag": "None",
+      "ask_tag": "M ",
+      "answer_tag": "M ",
+      "skip_line": [],
+      "label": "dialog",
+      "category": "普通对话",
+      "desc": "关于聊天机器人普通对话"
+    },
+    {
+      "file": "chinese_corpus/source/profile/profile.yml",
+      "type": "profile",
+      "file_type": "txt",
+      "start_tag": "None",
+      "end_tag": "None",
+      "ask_tag": "- - ",
+      "answer_tag": "  - ",
+      "skip_line": [
+        "categories:",
+        "- profile",
+        "conversations:"
+      ],
+      "label": "profile",
+      "category": "人格信息描述",
+      "desc": "关于聊天机器人自身的问答语料"
+    },
+    {
+      "file": "chinese_corpus/source/profile/profile_B.txt",
+      "type": "profile",
+      "file_type": "txt",
+      "start_tag": "<E>",
+      "end_tag": "<S>",
+      "ask_tag": "H ",
+      "answer_tag": "C ",
+      "skip_line": [],
+      "label": "profile",
+      "category": "人格信息描述",
+      "desc": "关于聊天机器人自身的问答语料"
+    },
+    {
+      "file": "chinese_corpus/source/profile/profile_C.txt",
+      "type": "profile",
+      "file_type": "txt",
+      "start_tag": "E",
+      "end_tag": "None",
+      "ask_tag": "M ",
+      "answer_tag": "M ",
+      "skip_line": [],
+      "label": "profile",
+      "category": "人格信息描述",
+      "desc": "关于聊天机器人自身的问答语料"
+    },
+    {
+      "file": "chinese_corpus/source/science/science.yml",
+      "type": "qa",
+      "file_type": "txt",
+      "start_tag": "None",
+      "end_tag": "None",
+      "ask_tag": "- - ",
+      "answer_tag": "  - ",
+      "skip_line": [
+        "categories:",
+        "- science",
+        "conversations:"
+      ],
+      "label": "science",
+      "category": "科学",
+      "desc": "生活中科学的问答语料"
+    },
+    {
+      "file": "chinese_corpus/source/food/food.yml",
+      "type": "qa",
+      "file_type": "txt",
+      "start_tag": "None",
+      "end_tag": "None",
+      "ask_tag": "- - ",
+      "answer_tag": "  - ",
+      "skip_line": [
+        "categories:",
+        "- food",
+        "conversations:"
+      ],
+      "label": "food",
+      "category": "食物",
+      "desc": "生活中食物的问答语料"
+    },
+    {
+      "file": "chinese_corpus/source/history/history.yml",
+      "type": "qa",
+      "file_type": "txt",
+      "start_tag": "None",
+      "end_tag": "None",
+      "ask_tag": "- - ",
+      "answer_tag": "  - ",
+      "skip_line": [
+        "categories:",
+        "- history",
+        "conversations:"
+      ],
+      "label": "history",
+      "category": "历史",
+      "desc": "历史的问答语料"
+    },
+    {
+      "file": "chinese_corpus/source/joke/joke.yml",
+      "type": "joke",
+      "file_type": "txt",
+      "start_tag": "None",
+      "end_tag": "None",
+      "ask_tag": "- - ",
+      "answer_tag": "  - ",
+      "skip_line": [
+        "categories:",
+        "- joke",
+        "conversations:"
+      ],
+      "label": "joke",
+      "category": "笑话",
+      "desc": "笑话的问答语料"
+    },
+    {
+      "file": "chinese_corpus/source/joke/xhj_joke.txt",
+      "type": "joke",
+      "file_type": "txt",
+      "start_tag": "E",
+      "end_tag": "None",
+      "ask_tag": "M ",
+      "answer_tag": "M ",
+      "skip_line": [],
+      "label": "joke",
+      "category": "笑话",
+      "desc": "小黄鸡的普通笑话语料"
+    },
+    {
+      "file": "chinese_corpus/source/sensitive_word/sensitive_word.txt",
+      "type": "sensitive_word",
+      "file_type": "txt",
+      "split_tag": "，",
+      "label": "sensitive_word",
+      "category": "敏感词",
+      "desc": "敏感词"
+    },
+    {
+      "file": "chinese_corpus/source/any_reply/any_reply.json",
+      "type": "any_reply",
+      "file_type": "json",
+      "field": [
+        "food",
+        "history",
+        "science",
+        "dialog",
+        "profile",
+        "sensitive_word",
+        "other"
+      ],
+      "desc": "万能回复"
+    }
+  ],
+  "word_sequence": "./word_sequence/word_sequence.pickle",
+  "model": {
+    "profile_distinguish": {
+      "model_file": "./model/profile_distinguish_model.pth",
+      "class_json": "./chinese_corpus/target/profile_distinguish_dataset/class.json",
+      "seq_len": 30,
+      "desc": "人格信息识别"
+    },
+    "profile_retrieval": {
+      "model_file": "./model/profile_retrieval_model.pth",
+      "class_json": "./chinese_corpus/target/profile_retrieval_dataset/class.json",
+      "seq_len": 40,
+      "desc": "人格信息检索"
+    },
+    "semantics": {
+      "model_file": "./model/semantics_distinguish_model.pth",
+      "class_json": "./chinese_corpus/target/semantics_distinguish_dataset/class.json",
+      "seq_len": 30,
+      "desc": "句意识别"
+    },
+    "knowledge_category": {
+      "model_file": "./model/knowledge_category_model.pth",
+      "class_json": "./chinese_corpus/target/knowledge_category_dataset/class.json",
+      "seq_len": 30,
+      "desc": "识别知识类别"
+    },
+    "knowledge_retrieval": {
+      "model_file": "./model/knowledge_retrieval_model.pth",
+      "class_json": "./chinese_corpus/target/knowledge_retrieval_dataset/class.json",
+      "seq_len": 60,
+      "desc": "知识检索"
+    },
+    "dialog": {
+      "model_file": "./model/dialog_retrieval_model.pth",
+      "class_json": "./chinese_corpus/target/dialog_retrieval_dataset/class.json",
+      "seq_len": 40,
+      "desc": "对话检索"
+    },
+    "score": {
+      "model_file": "./model/score_model.pth",
+      "seq_len": 60,
+      "desc": "评分网络"
+    }
+  },
+  "threshold": 0.9,
+  "category_label": {
+    "dialog": "dialog",
+    "profile": "profile",
+    "history": "history",
+    "science": "science",
+    "food": "food",
+    "joke": "joke",
+    "sensitive_word": "sensitive_word",
+    "knowledge": "knowledge",
+    "other": "other"
+  }
+}

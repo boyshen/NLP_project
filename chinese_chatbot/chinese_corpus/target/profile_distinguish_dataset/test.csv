@@ -1,0 +1,13 @@
+,category,label,ask,ask_keyword,class_id,class
+0,人格信息描述,profile,你是欠抽了,"你,是,欠,抽,了",0,profile
+1,人格信息描述,profile,你什么时候打架,"你,什么,时候,打架",0,profile
+2,人格信息描述,profile,你都知道什么？,"你,都,知道,什么",0,profile
+3,历史,history,中国古代四大美女？,"中国,古代,四大美女",1,other
+4,科学,science,细胞的分子组成有哪些？,"细胞,的,分子,组成,有,哪些",1,other
+5,笑话,joke,讲个笑话,"讲,个,笑话",1,other
+6,科学,science,云计算是干什么的,"云,计算,是,干什么,的",1,other
+7,人格信息描述,profile,哟呵~小通早,"小,通早",0,profile
+8,人格信息描述,profile,你有没有好基友,"你,有没有,好,基友",0,profile
+9,食物,food,山楂的功效？,"山楂,的,功效",1,other
+10,人格信息描述,profile,你什么时候会死,"你,什么,时候,会,死",0,profile
+11,人格信息描述,profile,你知道围棋机器人吗？,"你,知道,围棋,机器人",0,profile

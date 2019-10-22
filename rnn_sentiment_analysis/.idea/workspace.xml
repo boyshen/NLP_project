@@ -19,8 +19,8 @@
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="770">
-                <caret line="225" selection-start-line="225" selection-end-line="225" />
+              <first_editor relative-caret-position="3769">
+                <caret line="218" column="3" selection-start-line="218" selection-start-column="3" selection-end-line="218" selection-end-column="3" />
               </first_editor>
               <second_editor />
             </state>
@@ -104,6 +104,11 @@
             <path>
               <item name="rnn_sentiment_analysis" type="b2602c69:ProjectViewProjectNode" />
               <item name="rnn_sentiment_analysis" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="rnn_sentiment_analysis" type="b2602c69:ProjectViewProjectNode" />
+              <item name="rnn_sentiment_analysis" type="462c0819:PsiDirectoryNode" />
+              <item name="model" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="rnn_sentiment_analysis" type="b2602c69:ProjectViewProjectNode" />
@@ -269,16 +274,15 @@
       <workItem from="1563153102912" duration="24310000" />
       <workItem from="1563240141405" duration="22489000" />
       <workItem from="1563327065396" duration="22430000" />
-      <workItem from="1563359226258" duration="385000" />
+      <workItem from="1563359226258" duration="638000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="85448000" />
+    <option name="totallyTimeSpent" value="85701000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1440" y="0" width="1920" height="1080" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2630458" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -419,8 +423,8 @@
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="770">
-            <caret line="225" selection-start-line="225" selection-end-line="225" />
+          <first_editor relative-caret-position="3769">
+            <caret line="218" column="3" selection-start-line="218" selection-start-column="3" selection-end-line="218" selection-end-column="3" />
           </first_editor>
           <second_editor />
         </state>
